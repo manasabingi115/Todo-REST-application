@@ -25,6 +25,7 @@ submit.addEventListener('click', function (e) {
     .then((result) => {
       alert('login succefull');
       sessionStorage.setItem('token', result.token);
+      window.location.href = 'dashboard.html';
     })
     .catch((error) => alert('login failed please try again'));
 });
