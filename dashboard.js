@@ -1,5 +1,5 @@
 var listItems = document.getElementById('listItems');
-
+var data = [];
 var submit = document.getElementById('submit');
 
 fetch('https://api-nodejs-todolist.herokuapp.com/task', {
@@ -10,21 +10,14 @@ fetch('https://api-nodejs-todolist.herokuapp.com/task', {
 })
   .then((response) => response.json())
   .then((response) => {
-    var newList = '';
-    response.data.forEach((element) => {
-      newList += `<li class="${element.completed ? 'completed' : ''}">${
-        element.description
-      } ${element.completed}</li>`;
-    });
-
-    listItems.innerHTML = newList;
-
-    console.log(newList);
+    data = response.data;
+    showTasks();
   });
 
 submit.addEventListener('click', (e) => {
   var input = document.getElementById('inputData');
   var inputValue = input.value;
+
   fetch('https://api-nodejs-todolist.herokuapp.com/task', {
     method: 'POST',
     headers: {
@@ -38,5 +31,21 @@ submit.addEventListener('click', (e) => {
     .then((response) => response.json())
     .then((response) => {
       console.log(response);
+      input.value = '';
+      data.push(response.data);
+      showTasks();
     });
 });
+
+function showTasks() {
+  var newList = '';
+  data.forEach((element) => {
+    newList += `<li class="${element.completed ? 'completed' : ''}">${
+      element.description
+    } ${element.completed}</li>`;
+  });
+
+  listItems.innerHTML = newList;
+
+  console.log(newList);
+}
