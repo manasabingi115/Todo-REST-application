@@ -1,6 +1,8 @@
 var listItems = document.getElementById('listItems');
 var data = [];
 var submit = document.getElementById('submit');
+var list = document.querySelectorAll('li');
+console.log(list);
 
 fetch('https://api-nodejs-todolist.herokuapp.com/task', {
   headers: {
@@ -49,3 +51,24 @@ function showTasks() {
 
   console.log(newList);
 }
+
+list.addEventListener('click', (element) => {
+  fetch('https://api-nodejs-todolist.herokuapp.com/task?completed=true', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + sessionStorage.getItem('token'),
+    },
+    params: {
+      completed: true,
+    },
+  })
+    .then((response) => response.json())
+    .then((response) => {
+      if ($(element.completed) === true) {
+        return false;
+      } else {
+        return true;
+      }
+    });
+});
