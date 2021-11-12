@@ -66,9 +66,9 @@ list.addEventListener('click', (element) => {
     .then((response) => response.json())
     .then((response) => {
       if ($(element.completed) === true) {
-        return false;
+        return ($(element.completed) = false);
       } else {
-        return true;
+        return ($(element.completed) = true);
       }
     });
 });
