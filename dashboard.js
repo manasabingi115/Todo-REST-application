@@ -53,15 +53,15 @@ function showTasks() {
 }
 
 list.addEventListener('click', (element) => {
-  fetch('https://api-nodejs-todolist.herokuapp.com/task?completed=true', {
-    method: 'GET',
+  fetch('https://api-nodejs-todolist.herokuapp.com/task/+${}', {
+    method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
       Authorization: 'Bearer ' + sessionStorage.getItem('token'),
     },
-    params: {
-      completed: true,
-    },
+    body: {
+	"completed": true
+},
   })
     .then((response) => response.json())
     .then((response) => {
