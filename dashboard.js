@@ -52,7 +52,7 @@ function showTasks() {
   console.log(newList);
 }
 
-list.addEventListener('click', (element) => {
+list.forEach(("li"),(event) => li.addEventListener('click', (element) => {
   fetch('https://api-nodejs-todolist.herokuapp.com/task/+${}', {
     method: 'PUT',
     headers: {
@@ -71,4 +71,4 @@ list.addEventListener('click', (element) => {
         return ($(element.completed) = true);
       }
     });
-});
+}) );
