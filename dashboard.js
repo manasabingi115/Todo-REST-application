@@ -53,7 +53,7 @@ function showTasks() {
 }
 
 list.forEach(("li"),(event) => li.addEventListener('click', (element) => {
-  fetch('https://api-nodejs-todolist.herokuapp.com/task/+${}', {
+  fetch('https://api-nodejs-todolist.herokuapp.com/task/'+${}, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
