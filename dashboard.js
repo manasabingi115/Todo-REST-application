@@ -52,8 +52,8 @@ function showTasks() {
   console.log(newList);
 }
 
-list.forEach(("li"),(event) => li.addEventListener('click', (element) => {
-  fetch('https://api-nodejs-todolist.herokuapp.com/task/'+${}, {
+list.forEach(("li"),(event) => { li.addEventListener('click', (element) => {
+  fetch('https://api-nodejs-todolist.herokuapp.com/task/' +${count.data._id}, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -71,4 +71,4 @@ list.forEach(("li"),(event) => li.addEventListener('click', (element) => {
         return ($(element.completed) = true);
       }
     });
-}) );
+}) });
