@@ -1,4 +1,5 @@
 var listItems = document.getElementById('listItems');
+var lodingIcon = document.getElementById('loding-icon');
 var data = [];
 var submit = document.getElementById('submit');
 var API_URL = 'https://api-nodejs-todolist.herokuapp.com/task/';
@@ -60,6 +61,7 @@ function showTasks() {
 }
 
 async function apiCall(url, method, body) {
+  lodingIcon.classList.add('lds-dual-ring');
   const response = await fetch(url, {
     method: method,
     headers: {
@@ -69,6 +71,6 @@ async function apiCall(url, method, body) {
     body: body,
   });
   const data = await response.json();
-
+  lodingIcon.classList.remove('lds-dual-ring');
   return data;
 }
