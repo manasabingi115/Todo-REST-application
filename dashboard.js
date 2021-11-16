@@ -80,13 +80,13 @@ function showTasks() {
   });
   var del = document.getElementsByClassName('delete');
   console.log(del);
-  del
+  Array.from(del)
     .forEach((el) => {
       el.addEventListener('click', (event) => {
         fetch(
           `https://api-nodejs-todolist.herokuapp.com/task/${event.target.dataset.id}`,
           {
-            method: 'DEL',
+            method: 'DELETE',
             headers: {
               'Content-Type': 'application/json',
               Authorization: 'Bearer ' + sessionStorage.getItem('token'),
