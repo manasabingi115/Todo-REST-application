@@ -1,8 +1,6 @@
 var listItems = document.getElementById('listItems');
 var data = [];
 var submit = document.getElementById('submit');
-var list = document.querySelectorAll('li');
-console.log(list);
 
 fetch('https://api-nodejs-todolist.herokuapp.com/task', {
   headers: {
@@ -42,33 +40,40 @@ submit.addEventListener('click', (e) => {
 function showTasks() {
   var newList = '';
   data.forEach((element) => {
-    newList += `<li class="${element.completed ? 'completed' : ''}">${
-      element.description
-    } ${element.completed}</li>`;
+    newList += `<li class="${element.completed ? 'completed' : ''}" data-id="${
+      element._id
+    }">${element.description} ${element.completed}</li>`;
   });
 
   listItems.innerHTML = newList;
 
-  console.log(newList);
-}
-
-list.forEach(("li"),(event) => { li.addEventListener('click', (element) => {
-  fetch('https://api-nodejs-todolist.herokuapp.com/task/' +${count.data._id}, {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: 'Bearer ' + sessionStorage.getItem('token'),
-    },
-    body: {
-	"completed": true
-},
-  })
-    .then((response) => response.json())
-    .then((response) => {
-      if ($(element.completed) === true) {
-        return ($(element.completed) = false);
-      } else {
-        return ($(element.completed) = true);
-      }
+  var list = document.querySelectorAll('li');
+  list.forEach((li) => {
+    // event.target.classList
+    li.addEventListener('click', (event) => {
+      // console.log(event.target);
+      console.log(event.target.classList);
+      fetch(
+        `https://api-nodejs-todolist.herokuapp.com/task/${event.target.dataset.id}`,
+        {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + sessionStorage.getItem('token'),
+          },
+          body: JSON.stringify({
+            completed: !Array.from(event.target.classList).includes(
+              'completed'
+            ),
+          }),
+        }
+      )
+        .then((response) => response.json())
+        .then((response) => {
+          // if (event.target.classlist === 'completed') {
+          //   event.target.classlist = '';
+          // }
+        });
     });
-}) });
+  });
+}
