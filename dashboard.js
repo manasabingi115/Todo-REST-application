@@ -44,7 +44,7 @@ function showTasks() {
       element._id
     }">${element.description} ${
       element.completed
-    }</li><br><button class="delete">delete</button>`;
+    }</li><br><button class="delete" data-id="${element._id}">delete</button>`;
   });
 
   listItems.innerHTML = newList;
