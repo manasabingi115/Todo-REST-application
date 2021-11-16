@@ -80,18 +80,21 @@ function showTasks() {
   });
   var del = document.getElementsByClassName('delete');
   console.log(del);
-  del.forEach((el) => {
-    el.addEventListener('click', (event) => {
-      fetch(
-        `https://api-nodejs-todolist.herokuapp.com/task/${event.target.dataset.id}`,
-        {
-          method: 'DEL',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: 'Bearer ' + sessionStorage.getItem('token'),
-          },
-        }
-      );
-    });
-  });
+  del
+    .forEach((el) => {
+      el.addEventListener('click', (event) => {
+        fetch(
+          `https://api-nodejs-todolist.herokuapp.com/task/${event.target.dataset.id}`,
+          {
+            method: 'DEL',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: 'Bearer ' + sessionStorage.getItem('token'),
+            },
+          }
+        );
+        console.log('hi');
+      });
+    })
+    .then((response) => response.json());
 }
