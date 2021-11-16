@@ -42,7 +42,9 @@ function showTasks() {
   data.forEach((element) => {
     newList += `<li class="${element.completed ? 'completed' : ''}" data-id="${
       element._id
-    }">${element.description} ${element.completed}</li>`;
+    }">${element.description} ${
+      element.completed
+    }</li><br><button class="delete">delete</button>`;
   });
 
   listItems.innerHTML = newList;
