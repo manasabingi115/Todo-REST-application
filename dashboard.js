@@ -70,9 +70,9 @@ function showTasks() {
       )
         .then((response) => response.json())
         .then((response) => {
-          // if (event.target.classlist === 'completed') {
-          //   event.target.classlist = '';
-          // }
+          console.log(response.data);
+          data.push(response.data);
+          window.location.reload();
         });
     });
   });
