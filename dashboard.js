@@ -1,40 +1,25 @@
 var listItems = document.getElementById('listItems');
 var data = [];
 var submit = document.getElementById('submit');
+var API_URL = 'https://api-nodejs-todolist.herokuapp.com/task/';
 
-fetch('https://api-nodejs-todolist.herokuapp.com/task', {
-  headers: {
-    'Content-Type': 'application/json',
-    Authorization: 'Bearer ' + sessionStorage.getItem('token'),
-  },
-})
-  .then((response) => response.json())
-  .then((response) => {
-    data = response.data;
+function renderTasks() {
+  apiCall(API_URL, 'GET').then((response) => {
+    data = response.data.reverse();
     showTasks();
   });
-
+}
+renderTasks();
 submit.addEventListener('click', (e) => {
   var input = document.getElementById('inputData');
   var inputValue = input.value;
-
-  fetch('https://api-nodejs-todolist.herokuapp.com/task', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: 'Bearer ' + sessionStorage.getItem('token'),
-    },
-    body: JSON.stringify({
-      description: inputValue,
-    }),
-  })
-    .then((response) => response.json())
-    .then((response) => {
-      console.log(response);
-      input.value = '';
-      data.push(response.data);
-      showTasks();
-    });
+  var newTaskBody = JSON.stringify({
+    description: inputValue,
+  });
+  apiCall(API_URL, 'POST', newTaskBody).then((response) => {
+    input.value = '';
+    renderTasks();
+  });
 });
 
 function showTasks() {
@@ -51,50 +36,39 @@ function showTasks() {
 
   var list = document.querySelectorAll('li');
   list.forEach((li) => {
-    // event.target.classList
     li.addEventListener('click', (event) => {
-      // console.log(event.target);
+      const taskId = event.target.dataset.id;
+      const updateTaskBody = JSON.stringify({
+        completed: !Array.from(event.target.classList).includes('completed'),
+      });
       console.log(event.target.classList);
-      fetch(
-        `https://api-nodejs-todolist.herokuapp.com/task/${event.target.dataset.id}`,
-        {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: 'Bearer ' + sessionStorage.getItem('token'),
-          },
-          body: JSON.stringify({
-            completed: !Array.from(event.target.classList).includes(
-              'completed'
-            ),
-          }),
-        }
-      )
-        .then((response) => response.json())
-        .then((response) => {
-          console.log(response.data);
-          data.push(response.data);
-          window.location.reload();
-        });
+      apiCall(API_URL + taskId, 'PUT', updateTaskBody).then((response) => {
+        renderTasks();
+      });
     });
   });
   var del = document.getElementsByClassName('delete');
-  console.log(del);
-  Array.from(del)
-    .forEach((el) => {
-      el.addEventListener('click', (event) => {
-        fetch(
-          `https://api-nodejs-todolist.herokuapp.com/task/${event.target.dataset.id}`,
-          {
-            method: 'DELETE',
-            headers: {
-              'Content-Type': 'application/json',
-              Authorization: 'Bearer ' + sessionStorage.getItem('token'),
-            },
-          }
-        );
-        console.log('hi');
+
+  Array.from(del).forEach((el) => {
+    el.addEventListener('click', (event) => {
+      const taskId = event.target.dataset.id;
+      apiCall(API_URL + taskId, 'DELETE').then((response) => {
+        renderTasks();
       });
-    })
-    .then((response) => response.json());
+    });
+  });
+}
+
+async function apiCall(url, method, body) {
+  const response = await fetch(url, {
+    method: method,
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + sessionStorage.getItem('token'),
+    },
+    body: body,
+  });
+  const data = await response.json();
+
+  return data;
 }
