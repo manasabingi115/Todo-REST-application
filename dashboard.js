@@ -31,7 +31,9 @@ function showTasks() {
     }">${element.description} 
     </li><br><button class="delete" data-id="${
       element._id
-    }">delete</button><button>Edit</button>`;
+    }">delete</button><button class="edit" data-id="${
+      element._id
+    }">Edit</button>`;
   });
 
   listItems.innerHTML = newList;
@@ -50,9 +52,9 @@ function showTasks() {
     });
   });
   var del = document.getElementsByClassName('delete');
-
   Array.from(del).forEach((el) => {
     el.addEventListener('click', (event) => {
+      console.log('hello name');
       const taskId = event.target.dataset.id;
       apiCall(API_URL + taskId, 'DELETE').then((response) => {
         renderTasks();
@@ -60,6 +62,20 @@ function showTasks() {
     });
   });
 }
+
+var edit = document.getElementsByClassName('edit');
+Array.from(edit).forEach((ed) => {
+  ed.addEventListener('click', (event) => {
+    console.log('hello');
+    const taskId = event.target.dataset.id;
+    const editTaskBody = JSON.stringify({
+      description: '',
+    });
+    apiCall(API_URL + taskId, 'PUT').then((response) => {
+      renderTasks();
+    });
+  });
+});
 
 async function apiCall(url, method, body) {
   lodingIcon.classList.add('lds-dual-ring');
