@@ -52,6 +52,25 @@ function showTasks() {
     });
   });
   var del = document.getElementsByClassName('delete');
+  var edit = document.getElementsByClassName('edit');
+  Array.from(edit).forEach((ed) => {
+    ed.addEventListener('click', (event) => {
+      // console.log('hello');
+      if (ed.innerHTML === 'Edit') {
+        ed.innerHTML = 'Save';
+      } else {
+        ed.innerHTML = 'Edit';
+      }
+      const taskId = event.target.dataset.id;
+      const editTaskBody = JSON.stringify({
+        description: '',
+      });
+      apiCall(API_URL + taskId, 'PUT', editTaskBody).then((response) => {
+        // renderTasks();
+      });
+    });
+  });
+
   Array.from(del).forEach((el) => {
     el.addEventListener('click', (event) => {
       console.log('hello name');
@@ -63,19 +82,19 @@ function showTasks() {
   });
 }
 
-var edit = document.getElementsByClassName('edit');
-Array.from(edit).forEach((ed) => {
-  ed.addEventListener('click', (event) => {
-    console.log('hello');
-    const taskId = event.target.dataset.id;
-    const editTaskBody = JSON.stringify({
-      description: '',
-    });
-    apiCall(API_URL + taskId, 'PUT').then((response) => {
-      renderTasks();
-    });
-  });
-});
+// var edit = document.getElementsByClassName('edit');
+// Array.from(edit).forEach((ed) => {
+//   ed.addEventListener('click', (event) => {
+//     console.log('hello');
+//     const taskId = event.target.dataset.id;
+//     const editTaskBody = JSON.stringify({
+//       description: '',
+//     });
+//     apiCall(API_URL + taskId, 'PUT', editTaskBody).then((response) => {
+//       renderTasks();
+//     });
+//   });
+// });
 
 async function apiCall(url, method, body) {
   lodingIcon.classList.add('lds-dual-ring');
