@@ -56,15 +56,22 @@ function showTasks() {
   Array.from(edit).forEach((ed) => {
     ed.addEventListener('click', (event) => {
       // console.log('hello');
+      const taskId = event.target.dataset.id;
+      var editTaskBody = '';
       if (ed.innerHTML === 'Edit') {
         ed.innerHTML = 'Save';
+        editTaskBody = JSON.stringify({
+          // description: list.remove(),
+        });
+        console.log('hi');
       } else {
         ed.innerHTML = 'Edit';
+        editTaskBody = JSON.stringify({
+          description: 'hello',
+        });
+        console.log('hello');
       }
-      const taskId = event.target.dataset.id;
-      const editTaskBody = JSON.stringify({
-        description: '',
-      });
+
       apiCall(API_URL + taskId, 'PUT', editTaskBody).then((response) => {
         // renderTasks();
       });
