@@ -59,7 +59,10 @@ function showTasks() {
       const taskDescription =
         event.target.previousElementSibling.previousElementSibling
           .previousElementSibling.innerText;
-      console.log(taskDescription);
+      // console.log(taskDescription);
+      var popIn = document.querySelector('.popupInput').value;
+      popIn = taskDescription;
+      console.log(popIn);
       const taskId = event.target.dataset.id;
       var editTaskBody = '';
       if (ed.innerHTML === 'Edit') {
@@ -124,6 +127,5 @@ function closePopup() {
   close.style.display = 'none';
 }
 
-var popIn = document.querySelector('.popupInput').value;
-popIn = 'hi';
-console.log(popIn);
+
+
