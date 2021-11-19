@@ -61,7 +61,7 @@ function showTasks() {
       if (ed.innerHTML === 'Edit') {
         ed.innerHTML = 'Save';
         editTaskBody = JSON.stringify({
-          // description: list.remove(),
+          description: '',
         });
         console.log('hi');
       } else {
@@ -88,20 +88,6 @@ function showTasks() {
     });
   });
 }
-
-// var edit = document.getElementsByClassName('edit');
-// Array.from(edit).forEach((ed) => {
-//   ed.addEventListener('click', (event) => {
-//     console.log('hello');
-//     const taskId = event.target.dataset.id;
-//     const editTaskBody = JSON.stringify({
-//       description: '',
-//     });
-//     apiCall(API_URL + taskId, 'PUT', editTaskBody).then((response) => {
-//       renderTasks();
-//     });
-//   });
-// });
 
 async function apiCall(url, method, body) {
   lodingIcon.classList.add('lds-dual-ring');
