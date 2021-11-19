@@ -4,9 +4,26 @@ var data = [];
 var submit = document.getElementById('submit');
 var API_URL = 'https://api-nodejs-todolist.herokuapp.com/task/';
 var selectedTaskId = '';
-var filter = 'ALL';
+var filter = ' ';
+var all = document.getElementById('all');
+var completed = document.getElementById('completed');
+var uncompleted = document.getElementById('uncompleted');
 
-function renderTasks() {
+all.addEventListener('click', () => {
+  filter = 'all';
+  renderTasks();
+});
+
+completed.addEventListener('click', () => {
+  filter = 'COMPLETED';
+  renderTasks();
+});
+
+uncompleted.addEventListener('click', () => {
+  filter = 'NOT_COMPLETED';
+  renderTasks();
+});
+function renderTasks(task) {
   var queryParam = '';
   if (filter === 'COMPLETED') {
     queryParam = '?completed=true';
