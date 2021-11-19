@@ -60,12 +60,14 @@ function showTasks() {
       var editTaskBody = '';
       if (ed.innerHTML === 'Edit') {
         ed.innerHTML = 'Save';
+        openPopup();
         editTaskBody = JSON.stringify({
           description: '',
         });
         console.log('hi');
       } else {
         ed.innerHTML = 'Edit';
+        closePopup();
         editTaskBody = JSON.stringify({
           description: 'hello',
         });
@@ -105,12 +107,12 @@ async function apiCall(url, method, body) {
 }
 
 var cancel = document.querySelector('.cancel');
-cancel.addEventListener('click', openPopup());
+cancel.addEventListener('click', closePopup());
 function openPopup() {
-  var open = document.querySelector('.popup');
-  open.style.display = 'block';
+  var open = document.querySelector('.popup-container');
+  open.style.display = 'flex';
 }
 function closePopup() {
-  var close = document.querySelector('.popup');
+  var close = document.querySelector('.popup-container');
   close.style.display = 'none';
 }

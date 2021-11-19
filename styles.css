@@ -31,15 +31,17 @@ body {
 .popup {
   height: 100px;
   width: 250px;
+  display: inline-block;
   background-color: blanchedalmond;
   text-align: center;
   padding: 30px;
   border-radius: 10px;
-  /* display: none; */
+  position: fixed;
 }
 .popup-container {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: -500px;
+  /* display: none; */
 }
