@@ -4,8 +4,17 @@ var data = [];
 var submit = document.getElementById('submit');
 var API_URL = 'https://api-nodejs-todolist.herokuapp.com/task/';
 var selectedTaskId = '';
+var filter = 'ALL';
+
 function renderTasks() {
-  apiCall(API_URL, 'GET').then((response) => {
+  var queryParam = '';
+  if (filter === 'COMPLETED') {
+    queryParam = '?completed=true';
+  }
+  if (filter === 'NOT_COMPLETED') {
+    queryParam = '?completed=false';
+  }
+  apiCall(API_URL + queryParam, 'GET').then((response) => {
     data = response.data.reverse();
     showTasks();
   });
