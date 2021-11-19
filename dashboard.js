@@ -45,7 +45,7 @@ function showTasks() {
       const updateTaskBody = JSON.stringify({
         completed: !Array.from(event.target.classList).includes('completed'),
       });
-      console.log(event.target.classList);
+      // console.log(event.target.classList);
       apiCall(API_URL + taskId, 'PUT', updateTaskBody).then((response) => {
         renderTasks();
       });
@@ -61,17 +61,15 @@ function showTasks() {
       if (ed.innerHTML === 'Edit') {
         ed.innerHTML = 'Save';
         openPopup();
-        editTaskBody = JSON.stringify({
-          description: '',
-        });
-        console.log('hi');
+        // editTaskBody = JSON.stringify({
+        //   description: '',
+        // });
       } else {
         ed.innerHTML = 'Edit';
         closePopup();
-        editTaskBody = JSON.stringify({
-          description: 'hello',
-        });
-        console.log('hello');
+        // editTaskBody = JSON.stringify({
+        //   description: 'hello',
+        // });
       }
 
       apiCall(API_URL + taskId, 'PUT', editTaskBody).then((response) => {
@@ -82,7 +80,7 @@ function showTasks() {
 
   Array.from(del).forEach((el) => {
     el.addEventListener('click', (event) => {
-      console.log('hello name');
+      // console.log('hello name');
       const taskId = event.target.dataset.id;
       apiCall(API_URL + taskId, 'DELETE').then((response) => {
         renderTasks();
@@ -107,7 +105,11 @@ async function apiCall(url, method, body) {
 }
 
 var cancel = document.querySelector('.cancel');
-cancel.addEventListener('click', closePopup());
+// console.log(cancel);
+cancel.addEventListener('click', () => {
+  // console.log('name');
+  closePopup();
+});
 function openPopup() {
   var open = document.querySelector('.popup-container');
   open.style.display = 'flex';
@@ -116,3 +118,5 @@ function closePopup() {
   var close = document.querySelector('.popup-container');
   close.style.display = 'none';
 }
+
+var popIn = document.querySelector(".popupInput");

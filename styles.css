@@ -42,6 +42,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: -500px;
-  /* display: none; */
+  top: 250px;
+  width: 100%;
+  position: fixed;
+  display: none;
 }
