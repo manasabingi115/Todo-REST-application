@@ -28,15 +28,18 @@ body {
     transform: rotate(360deg);
   }
 }
-.popup-container {
-  height: 150px;
+.popup {
+  height: 100px;
   width: 250px;
   background-color: blanchedalmond;
+  text-align: center;
+  padding: 30px;
+  border-radius: 10px;
+  /* display: none; */
+}
+.popup-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  margin-top: -480px;
-  margin-left: 300px;
-  border-radius: 10px;
+  margin-top: -500px;
 }

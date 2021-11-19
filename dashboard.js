@@ -104,4 +104,13 @@ async function apiCall(url, method, body) {
   return data;
 }
 
-var openPopup = document.querySelector('.cancel');
+var cancel = document.querySelector('.cancel');
+cancel.addEventListener('click', openPopup());
+function openPopup() {
+  var open = document.querySelector('.popup');
+  open.style.display = 'block';
+}
+function closePopup() {
+  var close = document.querySelector('.popup');
+  close.style.display = 'none';
+}
