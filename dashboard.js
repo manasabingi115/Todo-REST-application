@@ -63,13 +63,26 @@ function showTasks() {
       var popIn = document.querySelector('.popupInput');
       popIn.value = taskDescription;
       console.log(popIn.value);
-      // var newTaskBodyUpdate = JSON.stringify({
-      //   description: popIn.value,
-      // });
+
       const taskId = event.target.dataset.id;
-      // apiCall(API_URL + taskId, 'PUT', newTaskBodyUpdate).then((response) => {
-      //   renderTasks();
-      // });
+    });
+  });
+  Array.from(update).forEach((up) => {
+    up.addEventListener('click', (event) => {
+      console.log('update');
+      const taskDescription =
+        event.target.previousElementSibling.previousElementSibling
+          .previousElementSibling.innerText;
+      var popIn = document.querySelector('.popupInput');
+      popIn.value = taskDescription;
+      console.log(popIn.value);
+      const taskId = event.target.dataset.id;
+      var newTaskBodyUpdate = JSON.stringify({
+        description: popIn.value,
+      });
+      apiCall(API_URL + taskId, 'PUT', newTaskBodyUpdate).then((response) => {
+        renderTasks();
+      });
     });
   });
 
