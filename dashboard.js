@@ -103,3 +103,5 @@ async function apiCall(url, method, body) {
   lodingIcon.classList.remove('lds-dual-ring');
   return data;
 }
+
+var openPopup = document.querySelector('.cancel');
