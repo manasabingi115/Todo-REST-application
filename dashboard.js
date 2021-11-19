@@ -56,6 +56,10 @@ function showTasks() {
   Array.from(edit).forEach((ed) => {
     ed.addEventListener('click', (event) => {
       // console.log('hello');
+      const taskDescription =
+        event.target.previousElementSibling.previousElementSibling
+          .previousElementSibling.innerText;
+      console.log(taskDescription);
       const taskId = event.target.dataset.id;
       var editTaskBody = '';
       if (ed.innerHTML === 'Edit') {
@@ -82,6 +86,7 @@ function showTasks() {
     el.addEventListener('click', (event) => {
       // console.log('hello name');
       const taskId = event.target.dataset.id;
+      console.log(taskId);
       apiCall(API_URL + taskId, 'DELETE').then((response) => {
         renderTasks();
       });
@@ -119,4 +124,6 @@ function closePopup() {
   close.style.display = 'none';
 }
 
-var popIn = document.querySelector(".popupInput");
+var popIn = document.querySelector('.popupInput').value;
+popIn = 'hi';
+console.log(popIn);
