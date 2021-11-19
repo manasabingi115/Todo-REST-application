@@ -3,7 +3,7 @@ var lodingIcon = document.getElementById('loding-icon');
 var data = [];
 var submit = document.getElementById('submit');
 var API_URL = 'https://api-nodejs-todolist.herokuapp.com/task/';
-
+var selectedTaskId = '';
 function renderTasks() {
   apiCall(API_URL, 'GET').then((response) => {
     data = response.data.reverse();
@@ -60,6 +60,10 @@ function showTasks() {
       const taskDescription =
         event.target.previousElementSibling.previousElementSibling
           .previousElementSibling.innerText;
+      selectedTaskId =
+        event.target.previousElementSibling.previousElementSibling
+          .previousElementSibling.dataset.id;
+      console.log(selectedTaskId);
       var popIn = document.querySelector('.popupInput');
       popIn.value = taskDescription;
       const taskId = event.target.dataset.id;
@@ -72,12 +76,17 @@ function showTasks() {
     // popIn.value = taskDescription;
     console.log(popIn.value);
     const taskId = event.target.dataset.id;
+    console.log(event.target.dataset.id);
     var newTaskBodyUpdate = JSON.stringify({
       description: popIn.value,
     });
-    apiCall(API_URL + taskId, 'PUT', newTaskBodyUpdate).then((response) => {
-      renderTasks();
-    });
+
+    apiCall(API_URL + selectedTaskId, 'PUT', newTaskBodyUpdate).then(
+      (response) => {
+        closePopup();
+        renderTasks();
+      }
+    );
   });
 
   Array.from(del).forEach((el) => {
