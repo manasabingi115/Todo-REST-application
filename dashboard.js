@@ -45,7 +45,6 @@ function showTasks() {
       const updateTaskBody = JSON.stringify({
         completed: !Array.from(event.target.classList).includes('completed'),
       });
-      // console.log(event.target.classList);
       apiCall(API_URL + taskId, 'PUT', updateTaskBody).then((response) => {
         renderTasks();
       });
@@ -63,20 +62,15 @@ function showTasks() {
       selectedTaskId =
         event.target.previousElementSibling.previousElementSibling
           .previousElementSibling.dataset.id;
-      console.log(selectedTaskId);
       var popIn = document.querySelector('.popupInput');
       popIn.value = taskDescription;
       const taskId = event.target.dataset.id;
     });
   });
   var update = document.querySelector('.update');
-  // console.log(update);
   update.addEventListener('click', (event) => {
     var popIn = document.querySelector('.popupInput');
-    // popIn.value = taskDescription;
-    console.log(popIn.value);
     const taskId = event.target.dataset.id;
-    console.log(event.target.dataset.id);
     var newTaskBodyUpdate = JSON.stringify({
       description: popIn.value,
     });
@@ -91,9 +85,7 @@ function showTasks() {
 
   Array.from(del).forEach((el) => {
     el.addEventListener('click', (event) => {
-      // console.log('hello name');
       const taskId = event.target.dataset.id;
-      console.log(taskId);
       apiCall(API_URL + taskId, 'DELETE').then((response) => {
         renderTasks();
       });
@@ -117,9 +109,7 @@ async function apiCall(url, method, body) {
 }
 
 var cancel = document.querySelector('.cancel');
-// console.log(cancel);
 cancel.addEventListener('click', () => {
-  // console.log('name');
   closePopup();
 });
 function openPopup() {
