@@ -53,35 +53,23 @@ function showTasks() {
   });
   var del = document.getElementsByClassName('delete');
   var edit = document.getElementsByClassName('edit');
+  var update = document.querySelector('.update');
   Array.from(edit).forEach((ed) => {
     ed.addEventListener('click', (event) => {
-      // console.log('hello');
+      openPopup();
       const taskDescription =
         event.target.previousElementSibling.previousElementSibling
           .previousElementSibling.innerText;
-      // console.log(taskDescription);
-      var popIn = document.querySelector('.popupInput').value;
-      popIn = taskDescription;
-      console.log(popIn);
+      var popIn = document.querySelector('.popupInput');
+      popIn.value = taskDescription;
+      console.log(popIn.value);
+      // var newTaskBodyUpdate = JSON.stringify({
+      //   description: popIn.value,
+      // });
       const taskId = event.target.dataset.id;
-      var editTaskBody = '';
-      if (ed.innerHTML === 'Edit') {
-        ed.innerHTML = 'Save';
-        openPopup();
-        // editTaskBody = JSON.stringify({
-        //   description: '',
-        // });
-      } else {
-        ed.innerHTML = 'Edit';
-        closePopup();
-        // editTaskBody = JSON.stringify({
-        //   description: 'hello',
-        // });
-      }
-
-      apiCall(API_URL + taskId, 'PUT', editTaskBody).then((response) => {
-        // renderTasks();
-      });
+      // apiCall(API_URL + taskId, 'PUT', newTaskBodyUpdate).then((response) => {
+      //   renderTasks();
+      // });
     });
   });
 
@@ -126,6 +114,3 @@ function closePopup() {
   var close = document.querySelector('.popup-container');
   close.style.display = 'none';
 }
-
-
-
