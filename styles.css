@@ -28,3 +28,8 @@ body {
     transform: rotate(360deg);
   }
 }
+.popup-container {
+  height: 100px;
+  width: 200px;
+  background-color: blanchedalmond;
+}
