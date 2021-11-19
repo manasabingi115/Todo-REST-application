@@ -8,6 +8,16 @@ var filter = ' ';
 var all = document.getElementById('all');
 var completed = document.getElementById('completed');
 var uncompleted = document.getElementById('uncompleted');
+var logout = document.getElementById('logout');
+var logoutURL = 'https://api-nodejs-todolist.herokuapp.com/user/logout';
+
+logout.addEventListener('click', () => {
+  console.log('logout');
+  apiCall(logoutURL, 'POST').then((response) => {
+    alert('Are you sure to logUot...');
+    window.location.href = 'index.html';
+  });
+});
 
 all.addEventListener('click', () => {
   filter = 'all';
