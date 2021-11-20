@@ -18,10 +18,12 @@ var pageLimit = 10;
 
 logout.addEventListener('click', () => {
   console.log('logout');
-  apiCall(logoutURL, 'POST').then((response) => {
-    alert('Are you sure to logUot...');
-    window.location.href = 'index.html';
-  });
+  var shoudLogout = confirm('Are you sure to logUot...');
+  if (shoudLogout) {
+    apiCall(logoutURL, 'POST').then((response) => {
+      window.location.href = 'index.html';
+    });
+  }
 });
 
 all.addEventListener('click', () => {
