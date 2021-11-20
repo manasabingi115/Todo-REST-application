@@ -10,7 +10,8 @@ var completed = document.getElementById('completed');
 var uncompleted = document.getElementById('uncompleted');
 var logout = document.getElementById('logout');
 var logoutURL = 'https://api-nodejs-todolist.herokuapp.com/user/logout';
-
+var count = 0;
+ 
 logout.addEventListener('click', () => {
   console.log('logout');
   apiCall(logoutURL, 'POST').then((response) => {
@@ -33,7 +34,7 @@ uncompleted.addEventListener('click', () => {
   filter = 'NOT_COMPLETED';
   renderTasks();
 });
-function renderTasks(task) {
+function renderTasks() {
   var queryParam = '';
   if (filter === 'COMPLETED') {
     queryParam = '?completed=true';
@@ -43,6 +44,7 @@ function renderTasks(task) {
   }
   apiCall(API_URL + queryParam, 'GET').then((response) => {
     data = response.data.reverse();
+    count = response.count;
     showTasks();
   });
 }
