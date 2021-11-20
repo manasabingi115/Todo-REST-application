@@ -83,7 +83,7 @@ function showTasks() {
   var pageCount = ``;
   for (i = 1; i <= pages; i++) {
     // count += i;
-    pageCount += `<button>"i"</button>`;
+    pageCount += `<button>${i}</button>`;
     console.log('count');
   }
   // console.log(count);
