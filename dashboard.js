@@ -42,10 +42,10 @@ uncompleted.addEventListener('click', () => {
 function renderTasks() {
   var queryParam = '?';
   if (filter === 'COMPLETED') {
-    queryParam = 'completed=true&';
+    queryParam += 'completed=true';
   }
   if (filter === 'NOT_COMPLETED') {
-    queryParam = 'completed=false&';
+    queryParam += 'completed=false';
   }
   // queryParam += `limit=${pageLimit}&skip=${(currentPage - 1) * 10}`;
   apiCall(API_URL + queryParam, 'GET').then((response) => {
@@ -82,10 +82,12 @@ function showTasks() {
     currentPageIndex * pageLimit,
     (currentPageIndex + 1) * pageLimit
   );
-  currentData.forEach((element) => {
+  currentData.forEach((element, index) => {
     newList += `<li class="${element.completed ? 'completed' : ''}" data-id="${
       element._id
-    }">${element.description} 
+    }">${data.findIndex((el) => el._id === element._id) + 1} ${
+      element.description
+    } 
     </li><br><button class="delete" data-id="${
       element._id
     }">delete</button><button class="edit" data-id="${
