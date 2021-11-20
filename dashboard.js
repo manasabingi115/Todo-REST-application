@@ -16,7 +16,6 @@ for (i = 0; i <= data; i++) {
   count += i;
   console.log(count);
 }
-console.log(listItems);
 
 logout.addEventListener('click', () => {
   console.log('logout');
@@ -81,8 +80,9 @@ function showTasks() {
   });
   console.log(data);
   listItems.innerHTML = newList;
+  console.log(listItems.innerHTML);
   var pageCount = ``;
-  for (i = 0; i <= 5; i++) {
+  for (i = 1; i <= 5; i++) {
     count += i;
     pageCount += `<button>"i"</button>`;
     console.log('count');
