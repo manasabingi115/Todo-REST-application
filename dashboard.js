@@ -74,20 +74,14 @@ function showTasks() {
       element._id
     }">Edit</button>`;
   });
-  console.log(data);
   listItems.innerHTML = newList;
-  // console.log(response.count);
   console.log(count);
   var pages = Math.ceil(count / 10);
   console.log(pages);
-  var pageCount = ``;
+  var pageCount = `<br><button><i class='fas fa-angle-double-left'></i></button>`;
   for (i = 1; i <= pages; i++) {
-    // count += i;
     pageCount += `<button>${i}</button>`;
-    console.log('count');
   }
-  // console.log(count);
-
   pagination.innerHTML = pageCount;
 
   var list = document.querySelectorAll('li');
