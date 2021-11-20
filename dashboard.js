@@ -13,7 +13,8 @@ var logout = document.getElementById('logout');
 var logoutURL = 'https://api-nodejs-todolist.herokuapp.com/user/logout';
 var pagination = document.getElementById('pagination');
 var count = 0;
-var currentPage = 1;
+var currentPageIndex = 0;
+var pageLimit = 10;
 
 logout.addEventListener('click', () => {
   console.log('logout');
@@ -37,14 +38,16 @@ uncompleted.addEventListener('click', () => {
   filter = 'NOT_COMPLETED';
   renderTasks();
 });
+
 function renderTasks() {
-  var queryParam = '';
+  var queryParam = '?';
   if (filter === 'COMPLETED') {
-    queryParam = '?completed=true';
+    queryParam = 'completed=true&';
   }
   if (filter === 'NOT_COMPLETED') {
-    queryParam = '?completed=false';
+    queryParam = 'completed=false&';
   }
+  // queryParam += `limit=${pageLimit}&skip=${(currentPage - 1) * 10}`;
   apiCall(API_URL + queryParam, 'GET').then((response) => {
     data = response.data.reverse();
     count = response.count;
@@ -75,7 +78,11 @@ inputData.addEventListener('keyup', (e) => {
 
 function showTasks() {
   var newList = '';
-  data.forEach((element) => {
+  var currentData = data.slice(
+    currentPageIndex * pageLimit,
+    (currentPageIndex + 1) * pageLimit
+  );
+  currentData.forEach((element) => {
     newList += `<li class="${element.completed ? 'completed' : ''}" data-id="${
       element._id
     }">${element.description} 
@@ -96,10 +103,12 @@ function showTasks() {
   pageCount += `<button><i class='fas fa-angle-double-right'></i></button>`;
   pagination.innerHTML = pageCount;
   var numbers = document.getElementsByClassName('numbers');
-  currentPage = e.target.innerText;
+
   Array.from(numbers).forEach((num) => {
     num.addEventListener('click', (e) => {
       console.log(e.target.innerText);
+      currentPageIndex = e.target.innerText - 1;
+      showTasks();
     });
   });
 
