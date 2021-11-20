@@ -82,6 +82,7 @@ function showTasks() {
   for (i = 1; i <= pages; i++) {
     pageCount += `<button>${i}</button>`;
   }
+  pageCount += `<button><i class='fas fa-angle-double-right'></i></button>`;
   pagination.innerHTML = pageCount;
 
   var list = document.querySelectorAll('li');
