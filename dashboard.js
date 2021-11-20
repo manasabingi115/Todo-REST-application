@@ -78,7 +78,7 @@ function showTasks() {
   console.log(count);
   var pages = Math.ceil(count / 10);
   console.log(pages);
-  var pageCount = `<br><button><i class='fas fa-angle-double-left'></i></button>`;
+  var pageCount = `<button><i class='fas fa-angle-double-left'></i></button>`;
   for (i = 1; i <= pages; i++) {
     pageCount += `<button>${i}</button>`;
   }

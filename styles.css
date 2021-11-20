@@ -50,3 +50,6 @@ body {
 .fas {
   font-size: 20px;
 }
+#pagination {
+  display: flex;
+}
