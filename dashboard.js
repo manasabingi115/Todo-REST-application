@@ -12,6 +12,11 @@ var logout = document.getElementById('logout');
 var logoutURL = 'https://api-nodejs-todolist.herokuapp.com/user/logout';
 var pagination = document.getElementById('pagination');
 var count = 0;
+for (i = 0; i <= data; i++) {
+  count += i;
+  console.log(count);
+}
+console.log(listItems);
 
 logout.addEventListener('click', () => {
   console.log('logout');
@@ -74,8 +79,15 @@ function showTasks() {
       element._id
     }">Edit</button>`;
   });
-
+  console.log(data);
   listItems.innerHTML = newList;
+  var pageCount = ``;
+  for (i = 0; i <= 5; i++) {
+    count += i;
+    pageCount += `<button>"i"</button>`;
+    console.log('count');
+  }
+  pagination.innerHTML = pageCount;
 
   var list = document.querySelectorAll('li');
   list.forEach((li) => {
