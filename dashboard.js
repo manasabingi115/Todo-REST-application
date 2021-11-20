@@ -78,8 +78,10 @@ function showTasks() {
   listItems.innerHTML = newList;
   // console.log(response.count);
   console.log(count);
+  var pages = Math.ceil(count / 10);
+  console.log(pages);
   var pageCount = ``;
-  for (i = 1; i <= count; i++) {
+  for (i = 1; i <= pages; i++) {
     // count += i;
     pageCount += `<button>"i"</button>`;
     console.log('count');
