@@ -1,6 +1,7 @@
 var listItems = document.getElementById('listItems');
 var lodingIcon = document.getElementById('loding-icon');
 var data = [];
+var inputData = document.getElementById('inputData');
 var submit = document.getElementById('submit');
 var API_URL = 'https://api-nodejs-todolist.herokuapp.com/task/';
 var selectedTaskId = '';
@@ -50,7 +51,8 @@ function renderTasks() {
   });
 }
 renderTasks();
-submit.addEventListener('click', (e) => {
+
+function addListItem() {
   var input = document.getElementById('inputData');
   var inputValue = input.value;
   var newTaskBody = JSON.stringify({
@@ -60,6 +62,14 @@ submit.addEventListener('click', (e) => {
     input.value = '';
     renderTasks();
   });
+}
+submit.addEventListener('click', () => {
+  addListItem();
+});
+inputData.addEventListener('keyup', (e) => {
+  if (e.keyCode === 13) {
+    addListItem();
+  }
 });
 
 function showTasks() {
