@@ -13,6 +13,7 @@ var logout = document.getElementById('logout');
 var logoutURL = 'https://api-nodejs-todolist.herokuapp.com/user/logout';
 var pagination = document.getElementById('pagination');
 var count = 0;
+var currentPage = 1;
 
 logout.addEventListener('click', () => {
   console.log('logout');
@@ -90,10 +91,17 @@ function showTasks() {
   console.log(pages);
   var pageCount = `<button><i class='fas fa-angle-double-left'></i></button>`;
   for (i = 1; i <= pages; i++) {
-    pageCount += `<button>${i}</button>`;
+    pageCount += `<button class="numbers">${i}</button>`;
   }
   pageCount += `<button><i class='fas fa-angle-double-right'></i></button>`;
   pagination.innerHTML = pageCount;
+  var numbers = document.getElementsByClassName('numbers');
+  currentPage = e.target.innerText;
+  Array.from(numbers).forEach((num) => {
+    num.addEventListener('click', (e) => {
+      console.log(e.target.innerText);
+    });
+  });
 
   var list = document.querySelectorAll('li');
   list.forEach((li) => {
