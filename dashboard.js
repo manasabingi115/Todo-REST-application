@@ -110,6 +110,7 @@ function showTasks() {
 
   Array.from(numbers).forEach((num) => {
     num.addEventListener('click', (e) => {
+      e.style.color = 'Red';
       console.log(e.target.innerText);
       currentPageIndex = e.target.innerText - 1;
       showTasks();
