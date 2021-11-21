@@ -9,10 +9,10 @@ var myHeaders = new Headers();
 myHeaders.append('Content-Type', 'application/json');
 
 var raw = JSON.stringify({
-  name: 'Muhammad Nur Ali',
-  email: 'muh.nurali43@gmail.com',
-  password: '12345678',
-  age: 20,
+  name: user.value,
+  email: password.value,
+  password: email.value,
+  age: age.value,
 });
 
 var requestOptions = {
