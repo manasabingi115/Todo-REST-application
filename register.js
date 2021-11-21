@@ -1,5 +1,9 @@
 var user = document.getElementById('user');
-
+var password = document.getElementById('password');
+var email = document.getElementById('email');
+var age = document.getElementById('age');
+var create = document.getElementById('create');
+var result;
 
 var myHeaders = new Headers();
 myHeaders.append('Content-Type', 'application/json');
