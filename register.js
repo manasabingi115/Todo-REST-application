@@ -5,8 +5,11 @@ var age = document.getElementById('age');
 var create = document.getElementById('create');
 var result;
 
-var myHeaders = new Headers();
-myHeaders.append('Content-Type', 'application/json');
+create.addEventListener('click', (e) => {
+  e.preventDefault();
+  var myHeaders = new Headers();
+  myHeaders.append('Content-Type', 'application/json');
+});
 
 var raw = JSON.stringify({
   name: user.value,
