@@ -4,7 +4,6 @@ var email = document.getElementById('email');
 var age = document.getElementById('age');
 var create = document.getElementById('create');
 var result;
-console.log(create);
 
 create.addEventListener('click', (e) => {
   e.preventDefault();

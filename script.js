@@ -2,6 +2,7 @@ var user = document.getElementById('user');
 var password = document.getElementById('password');
 var submit = document.getElementById('submit');
 var result;
+// console.log('hi');
 
 submit.addEventListener('click', function (e) {
   e.preventDefault();
