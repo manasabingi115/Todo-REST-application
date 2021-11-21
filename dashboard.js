@@ -1,4 +1,5 @@
 var listItems = document.getElementById('listItems');
+var todo = document.getElementById('head');
 var lodingIcon = document.getElementById('loding-icon');
 var data = [];
 var inputData = document.getElementById('inputData');
@@ -15,6 +16,7 @@ var pagination = document.getElementById('pagination');
 var count = 0;
 var currentPageIndex = 0;
 var pageLimit = 10;
+var numbers = document.getElementsByClassName('numbers');
 
 logout.addEventListener('click', () => {
   console.log('logout');
@@ -97,20 +99,19 @@ function showTasks() {
     }">Edit</button>`;
   });
   listItems.innerHTML = newList;
-  console.log(count);
+  // console.log(count);
   var pages = Math.ceil(count / 10);
-  console.log(pages);
+  // console.log(pages);
   var pageCount = `<button><i class='fas fa-angle-double-left'></i></button>`;
   for (i = 1; i <= pages; i++) {
     pageCount += `<button class="numbers">${i}</button>`;
   }
   pageCount += `<button><i class='fas fa-angle-double-right'></i></button>`;
   pagination.innerHTML = pageCount;
-  var numbers = document.getElementsByClassName('numbers');
 
   Array.from(numbers).forEach((num) => {
     num.addEventListener('click', (e) => {
-      e.style.color = 'Red';
+      // e.target.style.color = 'Red';
       console.log(e.target.innerText);
       currentPageIndex = e.target.innerText - 1;
       showTasks();
