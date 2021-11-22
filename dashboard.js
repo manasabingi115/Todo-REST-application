@@ -134,11 +134,11 @@ function showTasks() {
   });
   var shiftRight = document.getElementById('shiftRight');
   shiftRight.addEventListener('click', () => {
-    // if (currentPageIndex > 0) {
-    currentPageIndex = currentPageIndex + 1;
-    showTasks();
-    console.log(currentPageIndex);
-    // }
+    if (currentPageIndex < pages - 1) {
+      currentPageIndex = currentPageIndex + 1;
+      showTasks();
+      console.log(currentPageIndex);
+    }
   });
 
   var list = document.querySelectorAll('li');
