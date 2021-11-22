@@ -18,6 +18,8 @@ var currentPageIndex = 0;
 var pageLimit = 10;
 var numbers = document.getElementsByClassName('numbers');
 
+console.log('https://api-nodejs-todolist.herokuapp.com/task');
+
 logout.addEventListener('click', () => {
   console.log('logout');
   var shoudLogout = confirm('Are you sure to logUot...');
@@ -102,11 +104,11 @@ function showTasks() {
   // console.log(count);
   var pages = Math.ceil(count / 10);
   // console.log(pages);
-  var pageCount = `<button><i class='fas fa-angle-double-left'></i></button>`;
+  var pageCount = `<button id="shiftLeft"><i class='fas fa-angle-double-left'></i></button>`;
   for (i = 1; i <= pages; i++) {
     pageCount += `<button class="numbers">${i}</button>`;
   }
-  pageCount += `<button><i class='fas fa-angle-double-right'></i></button>`;
+  pageCount += `<button id="shiftRight"><i class='fas fa-angle-double-right'></i></button>`;
   pagination.innerHTML = pageCount;
 
   Array.from(numbers).forEach((num) => {
@@ -115,6 +117,10 @@ function showTasks() {
       console.log(e.target.innerText);
       currentPageIndex = e.target.innerText - 1;
       showTasks();
+      queryPage = '?limit=10&skip=10';
+      apiCall(API_URL + queryPage, 'GET').then((response) => {
+        renderTasks();
+      });
     });
   });
 
@@ -173,7 +179,7 @@ function showTasks() {
   });
 }
 
-async function apiCall(url, method, body) {
+async function apiCall(url, method, body, params) {
   lodingIcon.classList.add('lds-dual-ring');
   const response = await fetch(url, {
     method: method,
@@ -182,6 +188,9 @@ async function apiCall(url, method, body) {
       Authorization: 'Bearer ' + sessionStorage.getItem('token'),
     },
     body: body,
+    // params:
+    //  limit=10,
+    //  skip=10,
   });
   const data = await response.json();
   lodingIcon.classList.remove('lds-dual-ring');

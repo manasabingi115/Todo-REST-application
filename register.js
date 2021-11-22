@@ -31,12 +31,11 @@ create.addEventListener('click', (e) => {
     .then((response) => response.text())
     .then((result) => {
       sessionStorage.setItem('token', result.token);
+      window.location.href = 'index.html';
       console.log(result);
     })
-    .catch((error) => console.log('error', error));
+    .catch((error) => {
+      alert('error');
+      console.log('error', error);
+    });
 });
-
-// fetch('https://api-nodejs-todolist.herokuapp.com/user/register', requestOptions)
-//   .then((response) => response.text())
-//   .then((result) => console.log(result))
-//   .catch((error) => console.log('error', error));
