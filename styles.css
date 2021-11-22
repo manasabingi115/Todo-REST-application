@@ -1,5 +1,8 @@
 body {
-  background: orange;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: black;
 }
 .completed {
   text-decoration: line-through;
@@ -59,13 +62,19 @@ body {
 }
 #app {
   background-color: rgb(255, 0, 157);
-  padding: 20px;
+  padding: 20px 50px;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 10px 15px 50px white;
 }
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+a{
+  text-decoration: none;
+  color: black;
+  font-weight: bolder;
+}
+#submit{
+  
 }
