@@ -70,11 +70,15 @@ body {
   border-radius: 5px;
   box-shadow: 10px 15px 50px white;
 }
-a{
+a {
   text-decoration: none;
   color: black;
   font-weight: bolder;
 }
-#submit{
-  
+#userIcon {
+  padding: 20px;
+  display: inline-block;
+  /* height: 110px;
+  width: 110px; */
+  background-color: white;
 }
