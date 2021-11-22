@@ -22,7 +22,13 @@ loginForm.addEventListener('submit', function (e) {
   };
 
   fetch('https://api-nodejs-todolist.herokuapp.com/user/login', requestOptions)
-    .then((response) => response.json())
+    .then((response) => {
+      console.log(response);
+      if (response.status != 200) {
+        throw new Error('login failed');
+      }
+      return response.json();
+    })
     .then((result) => {
       alert('login succefull');
       sessionStorage.setItem('token', result.token);
