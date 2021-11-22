@@ -5,7 +5,6 @@ body {
   background-color: rgb(21, 21, 75);
 }
 #app {
-  /* background-image: linear-gradient(lightseagreen,rgb(102, 219, 213), rgb(227, 91, 245),rgb(238, 67, 172)); */
   background-color: powderblue;
   padding: 50px 50px;
   display: flex;

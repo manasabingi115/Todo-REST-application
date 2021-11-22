@@ -1,7 +1,44 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(21, 21, 75);
+}
+#app {
+  background-color: powderblue;
+  padding: 50px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 10px 15px 50px rgb(105, 105, 146);
+}
 #user,
 #password,
 #email,
 #age {
   background-color: white;
   border-radius: 10px;
+}
+#user,
+#password,
+#email,
+#age,
+#create {
+  height: 60px;
+  width: 400px;
+  border: none;
+  padding: 20px;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: center;
+}
+#create {
+  background-color: rgb(77, 189, 77);
+  color: white;
+  font-size: 20px;
+  border-radius: 50px;
+  margin-top: 50px;
+  cursor: pointer;
 }
