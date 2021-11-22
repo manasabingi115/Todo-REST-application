@@ -1,6 +1,6 @@
 var listItems = document.getElementById('listItems');
 var todo = document.getElementById('head');
-var lodingIcon = document.getElementById('loding-icon');
+var loadingIcon = document.getElementById('loading-icon');
 var data = [];
 var inputData = document.getElementById('inputData');
 var submit = document.getElementById('submit');
@@ -17,8 +17,6 @@ var count = 0;
 var currentPageIndex = 0;
 var pageLimit = 10;
 var numbers = document.getElementsByClassName('numbers');
-
-console.log('https://api-nodejs-todolist.herokuapp.com/task');
 
 logout.addEventListener('click', () => {
   console.log('logout');
@@ -197,7 +195,7 @@ function showTasks() {
 }
 
 async function apiCall(url, method, body, params) {
-  lodingIcon.classList.add('lds-dual-ring');
+  loadingIcon.classList.add('lds-dual-ring');
   const response = await fetch(url, {
     method: method,
     headers: {
@@ -210,7 +208,7 @@ async function apiCall(url, method, body, params) {
     //  skip=10,
   });
   const data = await response.json();
-  lodingIcon.classList.remove('lds-dual-ring');
+  loadingIcon.classList.remove('lds-dual-ring');
   return data;
 }
 
