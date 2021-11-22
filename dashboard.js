@@ -111,7 +111,7 @@ function showTasks() {
 
   Array.from(numbers).forEach((num) => {
     num.addEventListener('click', (e) => {
-      // e.target.style.color = 'Red';
+      e.target.style.color = 'red';
       console.log(e.target.innerText);
       currentPageIndex = e.target.innerText - 1;
       showTasks();
@@ -194,7 +194,7 @@ function showTasks() {
   });
 }
 
-async function apiCall(url, method, body, params) {
+async function apiCall(url, method, body) {
   loadingIcon.classList.add('lds-dual-ring');
   const response = await fetch(url, {
     method: method,
@@ -203,9 +203,6 @@ async function apiCall(url, method, body, params) {
       Authorization: 'Bearer ' + sessionStorage.getItem('token'),
     },
     body: body,
-    // params:
-    //  limit=10,
-    //  skip=10,
   });
   const data = await response.json();
   loadingIcon.classList.remove('lds-dual-ring');

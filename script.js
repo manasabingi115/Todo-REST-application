@@ -23,7 +23,6 @@ loginForm.addEventListener('submit', function (e) {
 
   fetch('https://api-nodejs-todolist.herokuapp.com/user/login', requestOptions)
     .then((response) => {
-      console.log(response);
       if (response.status != 200) {
         throw new Error('login failed');
       }

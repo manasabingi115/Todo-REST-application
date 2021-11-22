@@ -54,6 +54,18 @@ body {
   display: flex;
 }
 .numbers:focus {
-  background: #337ab7 ;
+  background: #337ab7;
   color: white !important;
+}
+#app {
+  background-color: rgb(255, 0, 157);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
