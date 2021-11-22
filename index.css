@@ -1,0 +1,49 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(19, 19, 56);
+}
+#app {
+  /* background-image: linear-gradient(lightseagreen,rgb(102, 219, 213), rgb(227, 91, 245),rgb(238, 67, 172)); */
+  background-color: white;
+  padding: 50px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 10px 15px 50px white;
+}
+a {
+  text-decoration: none;
+  color: black;
+  font-weight: bolder;
+}
+#userIcon {
+  padding: 20px;
+  display: inline-block;
+  height: 110px;
+  width: 110px;
+  background-color: black;
+  border-radius: 50%;
+}
+.fa-user-alt {
+  font-size: 75px;
+  margin-top: 10px;
+  color: white;
+}
+#user,
+#password,
+#submit {
+  height: 60px;
+  width: 400px;
+  border: none;
+  padding: 20px;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: center;
+}
+#login-form {
+  margin-top: 30px;
+}

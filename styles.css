@@ -1,8 +1,5 @@
 body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: black;
+  background: orange;
 }
 .completed {
   text-decoration: line-through;
@@ -59,33 +56,4 @@ body {
 .numbers:focus {
   background: #337ab7;
   color: white !important;
-}
-#app {
-  background-color: rgb(255, 0, 157);
-  padding: 20px 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  border-radius: 5px;
-  box-shadow: 10px 15px 50px white;
-}
-a {
-  text-decoration: none;
-  color: black;
-  font-weight: bolder;
-}
-#userIcon {
-  padding: 20px;
-  display: inline-block;
-  height: 110px;
-  width: 110px;
-  background-color: white;
-  border-radius: 50%;
-}
-.fas,
-fa-user-alt {
-  font-size: 75px;
-  margin-top: 10px;
-  color: lightseagreen;
 }
