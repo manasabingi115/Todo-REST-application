@@ -124,6 +124,23 @@ function showTasks() {
     });
   });
 
+  var shiftLeft = document.getElementById('shiftLeft');
+  shiftLeft.addEventListener('click', () => {
+    if (currentPageIndex > 0) {
+      currentPageIndex = currentPageIndex - 1;
+      showTasks();
+      console.log(currentPageIndex);
+    }
+  });
+  var shiftRight = document.getElementById('shiftRight');
+  shiftRight.addEventListener('click', () => {
+    // if (currentPageIndex > 0) {
+    currentPageIndex = currentPageIndex + 1;
+    showTasks();
+    console.log(currentPageIndex);
+    // }
+  });
+
   var list = document.querySelectorAll('li');
   list.forEach((li) => {
     li.addEventListener('click', (event) => {
