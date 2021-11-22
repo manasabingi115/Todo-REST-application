@@ -78,7 +78,14 @@ a {
 #userIcon {
   padding: 20px;
   display: inline-block;
-  /* height: 110px;
-  width: 110px; */
+  height: 110px;
+  width: 110px;
   background-color: white;
+  border-radius: 50%;
+}
+.fas,
+fa-user-alt {
+  font-size: 75px;
+  margin-top: 10px;
+  color: lightseagreen;
 }
