@@ -12,8 +12,8 @@ create.addEventListener('click', (e) => {
 
   var raw = JSON.stringify({
     name: user.value,
-    email: password.value,
-    password: email.value,
+    email: email.value,
+    password: password.value,
     age: age.value,
   });
 
@@ -24,14 +24,16 @@ create.addEventListener('click', (e) => {
     redirect: 'follow',
   };
 
-  fetch('https://api-nodejs-todolist.herokuapp.com/user/login', requestOptions)
-    .then((response) => response.json())
+  fetch(
+    'https://api-nodejs-todolist.herokuapp.com/user/register',
+    requestOptions
+  )
+    .then((response) => response.text())
     .then((result) => {
-      alert('login succefull');
       sessionStorage.setItem('token', result.token);
-      window.location.href = 'dashboard.html';
+      console.log(result);
     })
-    .catch((error) => alert('login failed please try again'));
+    .catch((error) => console.log('error', error));
 });
 
 // fetch('https://api-nodejs-todolist.herokuapp.com/user/register', requestOptions)

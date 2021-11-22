@@ -1,10 +1,10 @@
 var user = document.getElementById('user');
 var password = document.getElementById('password');
-var submit = document.getElementById('submit');
+var loginForm = document.getElementById('login-form');
 var result;
 // console.log('hi');
 
-submit.addEventListener('click', function (e) {
+loginForm.addEventListener('submit', function (e) {
   e.preventDefault();
   var myHeaders = new Headers();
   myHeaders.append('Content-Type', 'application/json');
