@@ -28,14 +28,19 @@ create.addEventListener('click', (e) => {
     'https://api-nodejs-todolist.herokuapp.com/user/register',
     requestOptions
   )
-    .then((response) => response.text())
+    .then((response) => {
+      if (response.status != 200) {
+        throw new Error('account not created');
+      }
+      return response.text();
+    })
     .then((result) => {
       sessionStorage.setItem('token', result.token);
       window.location.href = 'index.html';
       console.log(result);
     })
     .catch((error) => {
-      alert('error');
+      alert('Please enter details');
       console.log('error', error);
     });
 });

@@ -1,7 +1,7 @@
 var user = document.getElementById('user');
 var password = document.getElementById('password');
 var loginForm = document.getElementById('login-form');
-var result;
+var result; 
 // console.log('hi');
 
 loginForm.addEventListener('submit', function (e) {
