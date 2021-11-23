@@ -87,14 +87,14 @@ function showTasks() {
     (currentPageIndex + 1) * pageLimit
   );
   currentData.forEach((element, index) => {
-    newList += `<li class="${element.completed ? 'completed' : ''}" data-id="${
-      element._id
-    }">${data.findIndex((el) => el._id === element._id) + 1} ${
-      element.description
-    } 
+    newList += `<div class="task"><li class="${
+      element.completed ? 'completed' : ''
+    }" data-id="${element._id}">${
+      data.findIndex((el) => el._id === element._id) + 1
+    } ${element.description} 
     </li><br><i class='far fa-trash-alt delete' data-id="${
       element._id
-    }"></i><i class='far fa-edit edit' data-id="${element._id}"></i>`;
+    }"></i><i class='far fa-edit edit' data-id="${element._id}"></i></div>`;
   });
   listItems.innerHTML = newList;
   // console.log(count);
