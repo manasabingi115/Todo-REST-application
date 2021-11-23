@@ -5,22 +5,38 @@ body {
   justify-content: center;
 }
 #todo-list {
-  background-color: white;
+  background: #fff;
+  /* max-width: 355px; */
+  /* width: 100%; */
+  font-size: 25px;
+  display: inline-block;
+  margin: 120px auto;
+  padding: 30px 55px;
+  border-radius: 5px;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+  /* background-color: white;
   display: inline-block;
   padding: 40px 100px;
-  font-size: 25px;
+  font-size: 25px; */
 }
 .task {
-  
   background-color: orange;
   display: flex;
   /* overflow: hidden; */
 }
+li{
+  margin-left: -10px;
+}
 .delete {
   margin-left: auto;
 }
-.edit{
-  margin-right: -52px;
+.edit {
+  margin-right: -35px;
+}
+.task:hover{
+  background-color: red;
+  margin-right: 40px;
+  /* right: 0px; */
 }
 .completed {
   text-decoration: line-through;
@@ -79,4 +95,7 @@ body {
 .numbers:focus {
   background: #337ab7;
   color: white !important;
+}
+#listItems{
+  overflow: scroll;
 }
