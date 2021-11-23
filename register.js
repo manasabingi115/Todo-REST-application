@@ -29,10 +29,11 @@ create.addEventListener('click', (e) => {
     requestOptions
   )
     .then((response) => {
-      if (response.status != 200) {
-        throw new Error('account not created');
-      }
+      // if (response.status != 201) {
+      //   throw new Error('account not created');
+      // }
       return response.text();
+      alert('created');
     })
     .then((result) => {
       sessionStorage.setItem('token', result.token);
@@ -40,7 +41,7 @@ create.addEventListener('click', (e) => {
       console.log(result);
     })
     .catch((error) => {
-      alert('Please enter details');
+      alert('Error');
       console.log('error', error);
     });
 });

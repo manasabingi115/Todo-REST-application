@@ -79,7 +79,6 @@ inputData.addEventListener('keyup', (e) => {
     addListItem();
   }
 });
-
 function showTasks() {
   var newList = '';
   var currentData = data.slice(
