@@ -10,6 +10,18 @@ body {
   padding: 40px 100px;
   font-size: 25px;
 }
+.task {
+  
+  background-color: orange;
+  display: flex;
+  /* overflow: hidden; */
+}
+.delete {
+  margin-left: auto;
+}
+.edit{
+  margin-right: -52px;
+}
 .completed {
   text-decoration: line-through;
 }
@@ -38,8 +50,6 @@ body {
   }
 }
 .popup {
-  height: 100px;
-  width: 250px;
   display: inline-block;
   background-color: blanchedalmond;
   text-align: center;
