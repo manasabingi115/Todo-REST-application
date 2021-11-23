@@ -1,6 +1,9 @@
 body {
   background: orange;
 }
+#todo-list{
+  background-color: ;
+}
 .completed {
   text-decoration: line-through;
 }
@@ -49,6 +52,10 @@ body {
 }
 .fas {
   font-size: 20px;
+}
+.fa-angle-double-left:focus {
+  background: #337ab7;
+  color: white !important;
 }
 #pagination {
   display: flex;

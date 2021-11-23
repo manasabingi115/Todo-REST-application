@@ -94,9 +94,9 @@ function showTasks() {
     } 
     </li><br><button class="delete" data-id="${
       element._id
-    }">delete</button><button class="edit" data-id="${
+    }">delete</button><i class='far fa-edit edit' data-id="${
       element._id
-    }">Edit</button>`;
+    }"></i>`;
   });
   listItems.innerHTML = newList;
   // console.log(count);
