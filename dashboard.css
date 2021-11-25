@@ -17,6 +17,10 @@ body {
   background-color: orange;
   overflow: hidden;
 }
+li {
+  padding: 20px 0px 20px 0px;
+  position: relative;
+}
 #completed {
   height: 30px;
   width: 110px;
@@ -67,8 +71,8 @@ body {
   height: 20px;
   margin: 8px;
   border-radius: 50%;
-  border: 6px solid #fff;
-  border-color: #fff transparent #fff transparent;
+  border: 6px solid rgb(250, 250, 250);
+  border-color: rgb(43, 40, 230) transparent rgb(14, 209, 40) transparent;
   animation: lds-dual-ring 1.2s linear infinite;
 }
 @keyframes lds-dual-ring {
