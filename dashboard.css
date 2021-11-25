@@ -60,10 +60,17 @@ li {
   background-color: mediumpurple;
   color: white;
 }
+.input-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 #submit {
   width: 40px;
   height: 40px;
   border-radius: 100%;
+  font-size: 24px;
+  margin-left: 10px;
 }
 #inputData {
   height: 40px;
@@ -74,7 +81,7 @@ li {
 .fa-search {
   font-size: 16px;
   padding: 5px;
-  margin-left: -31px;
+  margin-left: -40px;
 }
 .task {
   display: flex;
