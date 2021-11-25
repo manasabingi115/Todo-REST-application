@@ -1,24 +1,35 @@
 body {
-  background: orange;
+  /* padding: 50px; */
+  background-color: black;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+#back-ground {
+  background: rgb(84, 197, 241);
+  width: 1200px;
+  height: 890px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #todo-list {
   background: #fff;
   width: 355px;
   font-size: 25px;
   margin: 120px auto;
-  padding: 30px 55px;
+  padding: 30px 40px;
   border-radius: 5px;
   box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
 }
 #listItems {
-  background-color: orange;
+  /* background-color: orange; */
   overflow: hidden;
+  height: 300px;
+  overflow-y: auto;
 }
 li {
-  padding: 20px 0px 20px 0px;
+  padding: 10px 0px 10px 0px;
   position: relative;
 }
 #completed {
@@ -32,14 +43,30 @@ li {
 #all {
   height: 30px;
   width: 100px;
+  padding: 8px;
+  border-radius: 20px;
+  border: none;
+  border-color: rgb(228, 217, 217);
+  background-color: mediumpurple;
+  color: white;
+}
+#all,
+#completed,
+#uncompleted {
+  padding: 8px;
+  border-radius: 20px;
+  border: none;
+  border-color: rgb(228, 217, 217);
+  background-color: mediumpurple;
+  color: white;
 }
 #submit {
-  width: 80px;
+  width: 40px;
   height: 40px;
 }
 #inputData {
   height: 40px;
-  width: 267px;
+  width: 308px;
 }
 .task {
   display: flex;

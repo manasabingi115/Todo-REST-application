@@ -6,16 +6,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
   </head>
   <body>
+    <div id="back-ground">
     <div id="todo-list">
-      <button id="logout">LogOut</button>
-      <h1 id="head">Todo App</h1>
-      <div>
+      <h2 id="head">Todo App</h2>
+      <!-- <div>
         <button id="all">All</button>
         <button id="completed">Completed</button>
         <button id="uncompleted">UnCompleted</button><br><br>
-      </div>
+      </div> -->
       <input id="inputData" placeholder="Enter Something"></input>
-      <button id="submit">submit</button>
+      <button id="submit">+</button><br><br>
+      <div>
+        <button id="all">All</button>
+        <button id="completed">Completed</button>
+        <button id="uncompleted">UnCompleted</button>
+      </div>
       <div id="loading-icon"></div>
       <div >
         <ol id="listItems"></ol>
@@ -31,9 +36,12 @@
           <button class="update">Update</button>
         </div>
       </div><br>
+      <button id="logout">LogOut</button>
+
       
     </div>
     <!-- <h2>oh whaaa!</h2> -->
+  </div>
 
     <script type="text/javascript" src="dashboard.js"></script>
   </body>
