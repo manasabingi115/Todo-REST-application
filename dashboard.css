@@ -15,14 +15,23 @@ body {
 }
 #listItems {
   background-color: orange;
-  /* overflow: scroll; */
   overflow: hidden;
 }
-
+#completed{
+  height: 30px;
+  width:110px;
+}
+#uncompleted{
+  height: 30px;
+  width:130px;
+}
+#all{
+  height: 30px;
+  width:100px;
+}
 .task {
   display: flex;
   margin-left: -32px;
-  /* overflow: hidden; */
 }
 
 .delete {
@@ -34,7 +43,6 @@ body {
 .task:hover {
   background-color: red;
   margin-right: 50px;
-  /* right: 0px; */
 }
 .completed {
   text-decoration: line-through;
