@@ -16,11 +16,12 @@ body {
 #listItems {
   background-color: orange;
   /* overflow: scroll; */
+  overflow: hidden;
 }
 
 .task {
   display: flex;
-  margin-left: -31px;
+  margin-left: -32px;
   /* overflow: hidden; */
 }
 
@@ -28,11 +29,11 @@ body {
   margin-left: auto;
 }
 .edit {
-  margin-right: -35px;
+  margin-right: -50px;
 }
 .task:hover {
   background-color: red;
-  margin-right: 40px;
+  margin-right: 50px;
   /* right: 0px; */
 }
 .completed {
