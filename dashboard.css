@@ -67,6 +67,7 @@ li {
 #inputData {
   height: 40px;
   width: 308px;
+  border-radius: 20px;
 }
 .task {
   display: flex;
