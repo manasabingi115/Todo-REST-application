@@ -60,6 +60,10 @@ header {
   font-size: 24px;
   border: none;
 }
+#submit:hover {
+  background-color: rgb(8, 185, 8);
+  color: white;
+}
 
 #tasks-by-order {
   display: flex;
