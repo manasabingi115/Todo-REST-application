@@ -13,6 +13,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 #todo-list {
   background: #fff;
   width: 355px;
@@ -23,10 +24,12 @@ body {
   box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
   /* position: fixed; */
 }
+
 header {
   font-size: 30px;
   padding-bottom: 15px;
 }
+
 .top {
   background-color: rgb(52, 139, 253);
   margin-left: -40px;
@@ -35,18 +38,33 @@ header {
   margin-top: -31px;
   border-radius: 30px 30px 0px 0px;
 }
-#listDiv {
-  width: 370px;
+
+.input-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-#listItems {
-  overflow: hidden;
-  height: 500px;
-  overflow-y: auto;
-  margin: auto;
+
+#inputData {
+  height: 40px;
+  width: 315px;
+  border-radius: 20px;
+  padding: 20px;
+  border: none;
+  font-size: 16px;
 }
-li {
-  padding: 10px 0px 10px 0px;
-  position: relative;
+#submit {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  font-size: 24px;
+  border: none;
+}
+
+#tasks-by-order {
+  display: flex;
+  justify-content: space-around;
+  margin-left: -30px;
 }
 #completed {
   height: 30px;
@@ -60,11 +78,7 @@ li {
   height: 30px;
   width: 80px;
 }
-#tasks-by-order {
-  display: flex;
-  justify-content: space-around;
-  margin-left: -30px;
-}
+
 #all,
 #completed,
 #uncompleted {
@@ -73,37 +87,22 @@ li {
   background: border-box;
   font-size: 15px;
 }
-.input-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+
+#listDiv {
+  width: 370px;
 }
-#submit {
-  width: 40px;
-  height: 40px;
-  border-radius: 100%;
-  font-size: 24px;
-  border: none;
+#listItems {
+  overflow: hidden;
+  height: 480px;
+  overflow-y: auto;
+  margin: auto;
 }
-#inputData {
-  height: 40px;
-  width: 315px;
-  border-radius: 20px;
-  padding: 20px;
-  border: none;
-  font-size: 16px;
-}
-/* .fa-search {
-  font-size: 16px;
-  padding: 5px;
-  margin-left: -50px;
-  color: gray;
-} */
 .task {
   display: flex;
   margin-left: -32px;
+  padding: 10px 0px 10px 0px;
+  position: relative;
 }
-
 .delete {
   margin-left: auto;
 }
@@ -111,12 +110,14 @@ li {
   margin-right: -50px;
 }
 .task:hover {
-  background-color: red;
   margin-right: 50px;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 .completed {
   text-decoration: line-through;
 }
+
 .lds-dual-ring {
   display: block;
   width: 20px;
@@ -141,6 +142,7 @@ li {
     transform: rotate(360deg);
   }
 }
+
 .popup {
   display: inline-block;
   background-color: blanchedalmond;
@@ -158,6 +160,7 @@ li {
   position: fixed;
   display: none;
 }
+
 .fas {
   font-size: 20px;
 }
