@@ -13,15 +13,17 @@ body {
   border-radius: 5px;
   box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
 }
-.task {
+#listItems {
   background-color: orange;
-  display: flex;
+  /* overflow: scroll; */
+}
 
+.task {
+  display: flex;
+  margin-left: -31px;
   /* overflow: hidden; */
 }
-li {
-  margin-left: -10px;
-}
+
 .delete {
   margin-left: auto;
 }
@@ -90,8 +92,4 @@ li {
 .numbers:focus {
   background: #337ab7;
   color: white !important;
-}
-#listItems {
-  width: 100%;
-  /* overflow: scroll; */
 }
