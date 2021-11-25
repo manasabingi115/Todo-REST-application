@@ -6,7 +6,7 @@ body {
   justify-content: center;
 }
 #back-ground {
-  background: rgb(84, 197, 241);
+  background: rgb(88, 187, 253);
   width: 1200px;
   height: 890px;
   display: flex;
@@ -28,7 +28,7 @@ header {
   padding-bottom: 15px;
 }
 .top {
-  background-color: red;
+  background-color: rgb(52, 139, 253);
   margin-left: -40px;
   margin-right: -40px;
   padding: 20px 25px;
@@ -39,6 +39,7 @@ header {
   overflow: hidden;
   height: 300px;
   overflow-y: auto;
+  margin: auto;
 }
 li {
   padding: 10px 0px 10px 0px;
@@ -54,23 +55,20 @@ li {
 }
 #all {
   height: 30px;
-  width: 100px;
-  padding: 8px;
-  border-radius: 20px;
-  border: none;
-  border-color: rgb(228, 217, 217);
-  background-color: mediumpurple;
-  color: white;
+  width: 80px;
+}
+#tasks-by-order {
+  display: flex;
+  justify-content: space-around;
+  margin-left: -30px;
 }
 #all,
 #completed,
 #uncompleted {
-  padding: 8px;
-  border-radius: 20px;
   border: none;
-  border-color: rgb(228, 217, 217);
-  background-color: mediumpurple;
-  color: white;
+  color: black;
+  background: border-box;
+  font-size: 15px;
 }
 .input-header {
   display: flex;
@@ -82,18 +80,22 @@ li {
   height: 40px;
   border-radius: 100%;
   font-size: 24px;
+  border: none;
 }
 #inputData {
   height: 40px;
   width: 315px;
   border-radius: 20px;
-  padding: 15px;
+  padding: 20px;
+  border: none;
+  font-size: 16px;
 }
-.fa-search {
+/* .fa-search {
   font-size: 16px;
   padding: 5px;
   margin-left: -50px;
-}
+  color: gray;
+} */
 .task {
   display: flex;
   margin-left: -32px;

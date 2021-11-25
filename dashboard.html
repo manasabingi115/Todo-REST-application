@@ -12,21 +12,19 @@
      <div class="top">
       <header id="head">Todo App</header>
       <div class="input-header">      
-        <input id="inputData" placeholder="Enter Something"><i class="fa fa-search"></i></input>
+        <input id="inputData" placeholder="Enter Something"></input>
+        <!-- <i class="fa fa-search"></i> -->
         <button id="submit">+</button><br><br>
       </div>
-      <div>
+      <div id="tasks-by-order">
         <button id="all">All</button>
         <button id="completed">Completed</button>
         <button id="uncompleted">UnCompleted</button>
       </div>
      </div>
-
       <div id="loading-icon"></div>
       <div >
         <ol id="listItems"></ol>
-      </div>
-      <div id="pagination">
       </div>
       <div class="popup-container">
         <div class="popup">
@@ -37,6 +35,17 @@
           <button class="update">Update</button>
         </div>
       </div><br>
+      <div id="pagination">
+      </div>
+      <!-- <div class="popup-container">
+        <div class="popup">
+          <input type="text" class="popupInput" placeholder="Enter Something" data-id="${
+            element._id
+          }"></input><br><br>
+          <button class="cancel">Cancel</button><br><br>
+          <button class="update">Update</button>
+        </div>
+      </div><br> -->
       <button id="logout">LogOut</button>      
     </div>
     <!-- <h2>oh whaaa!</h2> -->
