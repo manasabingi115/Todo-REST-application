@@ -1,0 +1,64 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(21, 21, 75);
+}
+#app {
+  background-color: powderblue;
+  padding: 50px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 10px 15px 50px rgb(105, 105, 146);
+}
+a {
+  text-decoration: none;
+  color: black;
+  font-weight: bolder;
+}
+#userIcon {
+  padding: 20px;
+  display: inline-block;
+  height: 110px;
+  width: 110px;
+  background-color: rgb(21, 21, 75);
+  border-radius: 50%;
+}
+.fa-user-alt {
+  font-size: 75px;
+  margin-top: 10px;
+  color: white;
+}
+#user,
+#password,
+#submit {
+  height: 60px;
+  width: 400px;
+  border: none;
+  padding: 20px;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: center;
+}
+#login-form {
+  margin-top: 30px;
+}
+#user,
+#password {
+  background-color: white;
+  border-radius: 10px;
+}
+#submit {
+  background-color: rgb(77, 189, 77);
+  color: white;
+  font-size: 20px;
+  border-radius: 50px;
+  margin-top: 50px;
+  cursor: pointer;
+}
+
+
+/*# sourceMappingURL=index.236fd539.css.map */

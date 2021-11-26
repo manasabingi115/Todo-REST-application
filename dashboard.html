@@ -10,7 +10,7 @@
     <div id="todo-list">
 
      <div class="top">
-      <header id="head">Todo App 2</header>
+      <header id="head">Todo App</header>
       <div class="input-header">      
         <input id="inputData" placeholder="Enter Something"></input>
         <!-- <i class="fa fa-search"></i> -->
@@ -28,16 +28,18 @@
       </div>
       <div class="popup-container">
         <div class="popup">
-          <input type="text" class="popupInput" placeholder="Enter Something" data-id="${
+          <textarea type="text" class="popupInput" placeholder="Enter Something" data-id="${
             element._id
-          }"></input><br><br>
+          }"></textarea><br><br>
           <button class="cancel">Cancel</button><br><br>
           <button class="update">Update</button>
         </div>
       </div><br>
-      <div id="pagination">
-      </div>
-      <button id="logout">LogOut</button>      
+      <div id="end">
+        <div id="pagination">
+        </div><br>
+        <button id="logout">LogOut</button> 
+      </div>  
     </div>
   </div>
 
