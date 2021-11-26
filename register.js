@@ -4,6 +4,7 @@ var email = document.getElementById('email');
 var age = document.getElementById('age');
 var create = document.getElementById('create');
 var result;
+var cancel = document.getElementById('cancel');
 
 create.addEventListener('click', (e) => {
   e.preventDefault();
@@ -44,4 +45,8 @@ create.addEventListener('click', (e) => {
       alert('Error');
       console.log('error', error);
     });
+});
+
+cancel.addEventListener('click', () => {
+  window.location.href = 'index.html';
 });
