@@ -91,9 +91,11 @@ function showTasks() {
     }" data-id="${element._id}">${
       data.findIndex((el) => el._id === element._id) + 1
     } ${element.description} 
-    </li><br><i class='far fa-trash-alt delete' data-id="${
+    </li><br><span class="modifying-task"><i class='far fa-trash-alt delete' data-id="${
       element._id
-    }"></i><i class='far fa-edit edit' data-id="${element._id}"></i></div>`;
+    }"></i><i class='far fa-edit edit' data-id="${
+      element._id
+    }"></i></span></div>`;
   });
   listItems.innerHTML = newList;
   // console.log(count);
