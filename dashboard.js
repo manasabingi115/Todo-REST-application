@@ -20,8 +20,8 @@ var numbers = document.getElementsByClassName('numbers');
 
 logout.addEventListener('click', () => {
   console.log('logout');
-  var shoudLogout = confirm('Are you sure to logUot...');
-  if (shoudLogout) {
+  var shouldLogout = confirm('Are you sure to logUot...');
+  if (shouldLogout) {
     apiCall(logoutURL, 'POST').then((response) => {
       window.location.href = 'index.html';
     });
